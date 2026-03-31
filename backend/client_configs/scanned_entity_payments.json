@@ -1,0 +1,16 @@
+{
+  "name": "Scanned - Entity Details & Payment Instructions",
+  "prompt": "This is a SCANNED SSI document (image-based PDF). It contains entity identification details and detailed payment instructions. The document quality may vary. Look for:\n- An entity details table with identification codes (MEI, GIIN, LEI)\n- Payment instructions organized by currency, each with intermediary bank, beneficiary bank, and payment reference details\n\nSince this is a scanned image, carefully read all text including small print. Preserve all codes, account numbers, and SWIFT codes exactly as shown. If any field is unclear, include it with a note about uncertainty.",
+  "sections": [
+    {
+      "name": "entity_details",
+      "description": "Entity identification and registration information",
+      "fields": ["entity_name", "mei", "trade_account_name", "giin", "lei", "entity_type", "address", "fund_manager", "fund_manager_mei"]
+    },
+    {
+      "name": "payment_instructions",
+      "description": "Per-currency payment routing instructions",
+      "fields": ["currency", "name", "swift_code", "aba_number", "sort_code", "account_number", "intermediary_bank_name", "intermediary_bank_swift", "beneficiary_account_with_institution", "beneficiary_bank_swift", "beneficiary_iban", "beneficiary_account_number", "payment_reference_attention", "special_instructions", "for_further_credit_name", "for_further_credit_account"]
+    }
+  ]
+}

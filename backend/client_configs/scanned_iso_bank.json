@@ -1,0 +1,16 @@
+{
+  "name": "Scanned - ISO Code Bank Instructions",
+  "prompt": "This is a SCANNED SSI document (image-based PDF). It contains a table of settlement instructions organized by ISO currency code. The entity name and address typically appear at the top right of the page.\n\nThe main table has columns for ISO code, intermediary bank details, and beneficiary bank details with their SWIFT codes and account numbers.\n\nCarefully extract the entity information from the header area and every row from the settlement table. Preserve all SWIFT/BIC codes and account numbers exactly.",
+  "sections": [
+    {
+      "name": "entity_info",
+      "description": "Entity name and address from the top of the page",
+      "fields": ["entity_name", "entity_address"]
+    },
+    {
+      "name": "settlement_instructions",
+      "description": "Table of settlement instructions per ISO currency code",
+      "fields": ["iso_code", "intermediary_bank", "intermediary_bank_swift_code", "beneficiary_bank", "beneficiary_bank_swift_code", "account_number"]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "XX Bank - FX & Money Market Settlements",
+  "prompt": "This is a Standard Settlement Instruction (SSI) document from XX Bank. It contains settlement instructions for foreign exchange, money market, and FX derivatives transactions. The document typically has:\n- A list of applicable products (free text descriptions)\n- An effective date\n- A general instruction note about netting and settlement behavior\n- A table of settlement details organized by beneficiary and currency\n- Signatory details at the bottom\n\nExtract all information faithfully. For the settlement table, capture every row with all columns. Preserve exact SWIFT/BIC codes and IBAN numbers.",
+  "sections": [
+    {
+      "name": "general_info",
+      "description": "Header section with general document information",
+      "fields": ["products", "effective_date", "settlement_instructions_note"]
+    },
+    {
+      "name": "settlement_details",
+      "description": "Table with settlement instructions per beneficiary and currency",
+      "fields": ["beneficiary", "currency", "iban", "bank_branch", "swift_code", "correspondent_bank", "correspondent_swift_code"]
+    },
+    {
+      "name": "signatories",
+      "description": "Authorized signatories at the end of the document",
+      "fields": ["signatory_name", "signatory_title", "date"]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "YY Bank - Custody & Cash Accounts",
+  "prompt": "This is a Standard Settlement Instruction (SSI) document from YY Bank covering custody and cash account details. The document has multiple pages:\n- First page: account number and date at the top\n- Securities/custody table: markets, sub-custodian details, securities accounts, security types, depository info, participant IDs, and settlement places\n- Cash accounts table (possibly on another page): account locations, bank names, currencies, correspondent bank details, SWIFT BICs, IBANs, and ABA/Fedwire numbers\n\nExtract all rows from each table completely. Pay attention to the account number at the top which is different from securities account numbers in the table.",
+  "sections": [
+    {
+      "name": "header",
+      "description": "Top of document with account-level information",
+      "fields": ["account_number", "date"]
+    },
+    {
+      "name": "securities_accounts",
+      "description": "Table with custody and securities account details per market",
+      "fields": ["market", "sub_custodian_name", "sub_custodian_swift", "securities_account_name", "securities_account_number", "security_type", "central_depository", "local_depository_number", "participant_id_type", "participant_id", "place_of_settlement", "registration_beneficiary_bic", "remarks", "entity_name_investor_id", "tax_id"]
+    },
+    {
+      "name": "cash_accounts",
+      "description": "Table with cash account and correspondent bank details",
+      "fields": ["account_location", "bank_name", "cash_account_name", "market_currency", "currency_name", "restricted_currency", "correspondent_bank_name", "correspondent_account_number", "correspondent_bank_swift_bic", "cash_account_number_iban", "correspondent_iban_or_fedwire_aba", "beneficiary_bank_swift_bic"]
+    }
+  ]
+}
